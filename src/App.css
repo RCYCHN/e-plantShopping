@@ -1,13 +1,61 @@
-/* LandingPage.css */
+/* Setup */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  /* border: 1px solid white; */
+  /*overflow: hidden;*/
 }
 
+:root {
+  /* colors */
+  --colorprimary: #3d405b;
+  --colorsecondary: #F4F1DE;
+  --coloraccent: #81B29A;
+  --colorlinks: #E07A5F;
+  
+  /* fonts */
+  --ff: "Urbanist", sans-serif;
+  --h1: 700 54px/70px var(--ff);
+  --h2: 700 36px/36px var(--ff);
+  --h3: 700 24px/30px var(--ff);
+  --links: 700 18px/18px var(--ff);
+  --p2: 300 30px/36px var(--ff);
+  --p: 300 18px/30px var(--ff);
+  --ps: 300 14px/24px var(--ff);
+
+  /* transition */
+  --transition: 0.2s ease-in-out;
+  
+  /* margins */
+  --margin-xxs: 0.25rem;
+  --margin-xs: 0.5rem;
+  --margin-s: 0.75rem;
+  --margin-m: 1rem;
+  --margin-l: 1.25rem;
+  --margin-xl: 1.75rem;
+  --margin-xxl: 2.5rem;
+  --margin-xxxl: 3.75rem;
+  --margin-outer-r: 6.25rem;
+  --margin-outer-l: 10rem;
+  --margin-outer-xl: 15rem;
+}
+
+/* font tags */
+h1 {font: var(--h1);}
+h2 {font: var(--h2);}
+h3 {font: var(--h3);}
+.links {font: var(--links);}
+.p2 {font: var(--p2);}
+p {font: var(--p);}
+.ps {font: var(--ps);}
+
+/* LandingPage.css */
 .landing-page {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   background-color: #f8f8f8;
@@ -19,31 +67,35 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://cdn.pixabay.com/photo/2017/07/13/08/59/greenhouse-2499758_1280.jpg');
+  background-image: url('https://cdn.pixabay.com/photo/2023/01/07/21/25/plants-7704141_1280.jpg');
   background-size: 100% 100%;
   background-position: center;
-  filter: brightness(0.8);
+  object-fit: cover;
 }
 .content {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  width: 100vw;
- top: 100px;
-  backdrop-filter: blur(4px);
-  background-color: rgba(0,0,0,0.5);
-  gap: 20px;
+  height: 75vh;
+  max-width: 1200px;
+  width: 100%;
+  top: 100px;
+  gap: var(--margin-xxxl);
+  backdrop-filter: blur(6px) saturate(100%);
+  -webkit-backdrop-filter: blur(6px) saturate(100%);
+  background-color: rgba(17, 25, 40, 0.45);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
 .landing_content {
- margin-top: 430px;
-  margin-left: 100px;
+ /* margin-top: 430px;
+  margin-left: 50px;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 1; */
   text-align: center;
-  /* background-color: red; */
-  width: 400px;
+  max-width: 450px;
   height: 400px;
   display: flex;
   align-items: center;
@@ -53,40 +105,36 @@
 }
 
 .content p,
-.content h1 {
-  color: white;
+.content h1,
+.content h3 {
+  color: var(--colorsecondary);
 }
 
-.content h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-.content p {
-  font-size: 25px;
+.content h3 {
+  font-size: 20px;
 }
 
 .divider {
   width: 50px;
-  height: 2px;
-  background-color: #4caf50;
+  height: 5px;
+  border-radius: 50px;
+  background-color: var(--coloraccent);
   margin: 10px 0;
 }
 
 .get-started-button {
   padding: 15px 25px;
-  font-size: 23px;
   border: none;
-  border-radius: 5px;
-  background-color: #4caf50;
-  color: white;
+  border-radius: 50px;
+  background-color: var(--coloraccent);
+  color: var(--colorsecondary);
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-top: 40px;
 }
 
 .get-started-button:hover {
-  background-color: #45a049;
+  background-color: var(--colorprimary);
 }
 
 /* ProductList.css */
