@@ -157,7 +157,9 @@ p {font: var(--p);}
   /* Enable vertical scrolling */
   z-index: 2;
   /* Ensure it's above landing page content */
-  backdrop-filter: blur(15px)
+  backdrop-filter: blur(15px);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .product-list-container.visible {
