@@ -1,3 +1,7 @@
+* {
+    border: 1px solid white;
+}
+
 /* Reset some default styles */
 body, h1, ul {
     margin: 0;
@@ -14,13 +18,29 @@ body {
 
 /* Navbar */
 .navbar {
-    background-color: var(--colorprimary);
+    backdrop-filter: blur(6px) saturate(100%);
+    -webkit-backdrop-filter: blur(6px) saturate(100%);
+    background-color: rgba(17, 25, 40, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.125);
     color: var(--colorsecondary);
     padding: 15px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     font-size: 20px;
+    margin-bottom: var(--margin-l);
+}
+
+.logo-text {
+    padding-left: var(--margin-l);
+    color: var(--colorsecondary);
+}
+
+.logo-text h3 p {
+    color: var(--colorsecondary)!important;
+}
+
+.luxury a {
+    text-decoration: none;
 }
 
 .navbar .ul {
@@ -41,7 +61,28 @@ body {
    
 }
 
+.plants-cart {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 var(--margin-l);
+    text-decoration: none;
+}
+
+.plants-cart a {
+    text-decoration: none;
+}
+
+.plants-cart h1 {
+    color: var(--colorsecondary);
+}
+
 /* Product Grid */
+.category-title {
+    color: var(--colorsecondary);
+    margin-bottom: var(--margin-l);
+}
+
 .product-grid {
     display: flex;
     flex-wrap: wrap;
@@ -72,10 +113,10 @@ body {
     background-color: rgba(17, 25, 40, 0.45);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
-    text-align: center;
     position: relative;
     
     gap: 20px;
+    color: var(--colorsecondary);
 }
 
 /* Pseudo-classes - Hover effect on product button */
@@ -86,13 +127,17 @@ body {
 }
 
 .product-title {
-    font-weight: bold;
     margin-bottom: 10px;
+    color: var(--colorsecondary);
 }
 
 .product-price {
-    color: #e74c3c;
-    font-size: 1.2rem;
+    color: var(--colorsecondary);
+    margin-bottom: 10px;
+}
+
+.product-description {
+    color: var(--colorsecondary);
     margin-bottom: 10px;
 }
 
@@ -125,13 +170,14 @@ body {
 /* Pseudo-elements - Sale badge */
 .product-card::before {
     content: "SALE";
-    background-color: #e74c3c;
-    color: #fff;
+    font: var(--links);
+    background-color: var(--colorlinks);
+    color: var(--colorsecondary);
     position: absolute;
     top: 0;
     right: 0;
     padding: 5px 10px;
-    border-radius: 0 0 0 5px;
+    border-radius: 0 12px 0 5px;
 }
 .tag_home_link{
     display: flex;
