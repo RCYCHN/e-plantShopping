@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
@@ -21,11 +21,6 @@ const CartItem = ({ onContinueShopping }) => {
     return totalAmount;
   };
 
-  const handleContinueShopping = (e) => {
-    e.preventDefault();
-    setShowCart(false);
-  };
-
   const handleCheckoutShopping = (e) => {
     alert('Functionality to be added for future reference');
   };
@@ -41,6 +36,7 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleRemove = (item) => {
+    console.log("Removing item:", item.name);
     dispatch(removeItem(item.name));
   };
 
@@ -52,6 +48,7 @@ const CartItem = ({ onContinueShopping }) => {
 
 
   return (
+    <div className="cart-page-wrapper">
     <div className="cart-container">
       <h2>Total Cart Amount: ${calculateTotalAmount()}</h2>
       <div>
@@ -59,25 +56,24 @@ const CartItem = ({ onContinueShopping }) => {
           <div className="cart-item" key={item.name}>
             <img className="cart-item-image" src={item.image} alt={item.name} />
             <div className="cart-item-details">
-              <div className="cart-item-name">{item.name}</div>
-              <div className="cart-item-cost">{item.cost}</div>
+              <h3 className="cart-item-name">{item.name}</h3>
+              <div className="cart-item-cost ps">{item.cost}</div>
               <div className="cart-item-quantity">
                 <button className="cart-item-button cart-item-button-dec" onClick={() => handleDecrement(item)}>-</button>
-                <span className="cart-item-quantity-value">{item.quantity}</span>
+                <p className="cart-item-quantity-value">{item.quantity}</p>
                 <button className="cart-item-button cart-item-button-inc" onClick={() => handleIncrement(item)}>+</button>
               </div>
-              <div className="cart-item-total">Total: ${calculateTotalCost(item)}</div>
-              <button className="cart-item-delete" onClick={() => handleRemove(item)}>Delete</button>
+              <div className="cart-item-total links">Total: ${calculateTotalCost(item)}</div>
+              <button className="cart-item-delete links" onClick={() => handleRemove(item)}>Delete</button>
             </div>
           </div>
         ))}
       </div>
-      <div className='total_cart_amount'></div>
       <div className="continue_shopping_btn">
-        <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button>
-        <br />
-        <button className="get-started-button1" onClick={(e) => handleCheckoutShopping(e)}>Checkout</button>
+        <button className="get-started-button CS" onClick={onContinueShopping}>Continue Shopping</button>
+        <button className="get-started-button1 links" onClick={(e) => handleCheckoutShopping(e)}>Checkout</button>
       </div>
+    </div>
     </div>
   );
 };

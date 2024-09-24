@@ -29,9 +29,11 @@ export const CartSlice = createSlice({
       }
     },
     removeItem: (state, action) => {
+      console.log("Removing item from state:", action.payload);
+      const itemToRemove = state.items.find(item => item.name === action.payload); // find item
       return {
         ...state,
-        items: state.items.filter(item => item.name !== action.payload),
+        items: state.items.filter(item => item.name !== action.payload), // remove item
         totalQuantity: state.totalQuantity - (itemToRemove ? itemToRemove.quantity : 0), // Decrement totalQuantity
       };
     },
