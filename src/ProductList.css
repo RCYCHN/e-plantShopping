@@ -71,6 +71,9 @@ body {
 
 .cart {
     margin-right: var(--margin-xl);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .plants-cart a {
@@ -79,6 +82,11 @@ body {
 
 .plants-cart h1 {
     color: var(--colorsecondary);
+}
+
+.plants-cart span {
+    position: absolute;
+    margin: 0;
 }
 
 /* Product Grid */
